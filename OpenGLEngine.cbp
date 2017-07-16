@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="OpenGLEngine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/OpenGLEngine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++14" />
+					<Add option="-m64" />
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-m64" />
+					<Add library="GL" />
+					<Add library="SDL2" />
+					<Add library="GLEW" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/OpenGLEngine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/engine.h" />
+		<Unit filename="include/engine_input.h" />
+		<Unit filename="include/engine_time.h" />
+		<Unit filename="include/game.h" />
+		<Unit filename="include/matrix4f.h" />
+		<Unit filename="include/quaternion.h" />
+		<Unit filename="include/vector2f.h" />
+		<Unit filename="include/vector3f.h" />
+		<Unit filename="include/window.h" />
+		<Unit filename="src/engine.cpp" />
+		<Unit filename="src/engine_input.cpp" />
+		<Unit filename="src/engine_time.cpp" />
+		<Unit filename="src/game.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/matrix4f.cpp" />
+		<Unit filename="src/quaternion.cpp" />
+		<Unit filename="src/vector2f.cpp" />
+		<Unit filename="src/vector3f.cpp" />
+		<Unit filename="src/window.cpp" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
