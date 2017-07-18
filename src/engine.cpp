@@ -4,6 +4,7 @@
 #include <thread>
 #include "engine_time.h"
 #include "engine_input.h"
+#include "render_util.h"
 
 #define FRAME_TIME 1.0 / FRAME_CAP
 
@@ -69,7 +70,7 @@ void Engine::run() {
 }
 
 void Engine::render() {
-    m_window.Clear(0.0f, 0.15f, 0.3f, 1.0f);
+    RenderUtil::clearScreen();
     m_game.render();
     m_window.Render();
 }

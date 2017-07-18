@@ -11,7 +11,6 @@ class Window
         Window(const int width, const int height, const std::string& title);
         Window(const Window& other);
         virtual ~Window();
-        void Clear(float r, float g, float b, float a);
         void Render();
         bool isClosed();
 

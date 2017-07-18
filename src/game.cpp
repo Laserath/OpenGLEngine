@@ -4,11 +4,20 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 
-using namespace ogle;
+namespace ogle {
 
 Game::Game()
 {
+    std::vector<Vertex> vertices = {};
 
+    Vector3f vec3f_bl(-1.0f, -1.0f, 0.0f);
+    Vector3f vec3f_br(-1.0f,  1.0f, 0.0f);
+    Vector3f vec3f_tm( 0.0f,  1.0f, 0.0f);
+    vertices.push_back(Vertex(vec3f_bl));
+    vertices.push_back(Vertex(vec3f_tm));
+    vertices.push_back(Vertex(vec3f_br));
+
+    m_mesh.addVertices(vertices);
 }
 
 void Game::input() {
@@ -40,7 +49,7 @@ void Game::update() {
 }
 
 void Game::render() {
-
+    m_mesh.draw();
 }
 
 Game::~Game()
@@ -48,4 +57,4 @@ Game::~Game()
 
 }
 
-
+}

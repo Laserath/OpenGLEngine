@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <memory>
+#include <glm/glm.hpp>
 
 #define DEGREE_TO_RADIANS M_PI / 180
 
@@ -23,6 +24,8 @@ class Vector3f
         float getZ() const;
         float getZ();
         void setZ(const float z);
+
+        inline std::shared_ptr<glm::vec3> asGLMVec() { return std::make_shared<glm::vec3>(getX(), getY(), getZ()); }
 
         float length() const;
         float length();
@@ -47,7 +50,6 @@ class Vector3f
     protected:
 
     private:
-        void operator=(const Vector3f& other) { }
 
         float m_x;
         float m_y;

@@ -13,7 +13,9 @@ Vector3f::Vector3f(const float x, const float y, const float z)
 
 Vector3f::Vector3f(const Vector3f& other)
 {
-
+    setX(other.getX());
+    setY(other.getY());
+    setZ(other.getZ());
 }
 
 float Vector3f::getX() const {
