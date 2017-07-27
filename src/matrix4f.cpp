@@ -21,7 +21,7 @@ std::shared_ptr<Matrix4f> Matrix4f::initIdentity() {
       {0,0,1,0},
       {0,0,0,1} };
     this->setMatrix(identityMatrix);
-    return shared_from_this();
+    return this->shared_from_this();
 }
 
 std::shared_ptr<Matrix4f> Matrix4f::multiply(const Matrix4f& r) {

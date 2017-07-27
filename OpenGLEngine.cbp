@@ -54,6 +54,10 @@
 		<Unit filename="include/vector3f.h" />
 		<Unit filename="include/vertex.h" />
 		<Unit filename="include/window.h" />
+		<Unit filename="resource_loader.cpp" />
+		<Unit filename="resource_loader.h" />
+		<Unit filename="shader.cpp" />
+		<Unit filename="shader.h" />
 		<Unit filename="src/engine.cpp" />
 		<Unit filename="src/engine_input.cpp" />
 		<Unit filename="src/engine_time.cpp" />

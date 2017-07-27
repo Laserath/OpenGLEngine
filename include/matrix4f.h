@@ -6,8 +6,10 @@
 #include <vector>
 #include <memory>
 
+
+
 namespace ogle {
-class Matrix4f: std::enable_shared_from_this<Matrix4f> {
+class Matrix4f: public std::enable_shared_from_this<Matrix4f> {
     public:
         Matrix4f();
         Matrix4f(const Matrix4f& other);

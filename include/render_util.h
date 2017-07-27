@@ -1,6 +1,7 @@
 #ifndef RENDER_UTIL_H
 #define RENDER_UTIL_H
 
+#include <string>
 
 class RenderUtil
 {
@@ -12,6 +13,7 @@ class RenderUtil
         static void clearScreen();
         static void initGraphics();
         static void shutdown();
+        static std::string getOpenGLVersion();
 
     protected:
 

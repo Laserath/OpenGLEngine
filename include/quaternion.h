@@ -5,7 +5,7 @@
 #include "vector3f.h"
 
 namespace ogle {
-class Quaternion: std::enable_shared_from_this<Quaternion>
+class Quaternion: public std::enable_shared_from_this<Quaternion>
 {
     public:
         Quaternion(const float x, const float y, const float z, const float w) {
