@@ -3,6 +3,7 @@
 
 #include <GL/glew.h>
 #include <string>
+#include <iostream>
 
 class Shader
 {
@@ -16,7 +17,9 @@ class Shader
         void addGeometryShader(const std::string& shaderCode) { addShader(shaderCode, GL_GEOMETRY_SHADER); }
 
         void compileShader();
-        void bind() { glUseProgram(m_program); }
+        void bind() {
+            glUseProgram(m_program);
+        }
 
         virtual ~Shader();
 

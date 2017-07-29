@@ -12,9 +12,9 @@ Game::Game()
 {
     std::vector<Vertex> vertices = {};
 
-    Vector3f vec3f_bl(-1.0f, -1.0f, 0.0f);
-    Vector3f vec3f_br(-1.0f,  1.0f, 0.0f);
-    Vector3f vec3f_tm( 0.0f,  1.0f, 0.0f);
+    Vector3f vec3f_bl(-1.0f, -1.0f, 1.0f);
+    Vector3f vec3f_br( 1.0f, -1.0f, 1.0f);
+    Vector3f vec3f_tm( 0.0f,  1.0f, 1.0f);
     vertices.push_back(Vertex(vec3f_bl));
     vertices.push_back(Vertex(vec3f_tm));
     vertices.push_back(Vertex(vec3f_br));
@@ -32,7 +32,7 @@ Game::Game()
 
     m_shader.addVertexShader(vertexShader);
     m_shader.addFragmentShader(fragmentShader);
-
+    m_shader.compileShader();
 }
 
 void Game::input() {

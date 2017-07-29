@@ -27,12 +27,15 @@ void Shader::addShader(const std::string& shaderCode, GLenum shaderType) {
     GLuint *shaderHandle;
     switch(shaderType) {
     case GL_FRAGMENT_SHADER:
+        //std::cout << "adding fragment shader" << std::endl;
         shaderHandle = &m_shaders[SHADERS::FRAGMENT_SHADER];
         break;
     case GL_GEOMETRY_SHADER:
+        //std::cout << "adding geo shader" << std::endl;
         shaderHandle = &m_shaders[SHADERS::GEOMETRY_SHADER];
         break;
     case GL_VERTEX_SHADER:
+        //std::cout << "adding vertex shader" << std::endl;
         shaderHandle = &m_shaders[SHADERS::VERTEX_SHADER];
         break;
     default:
@@ -54,6 +57,7 @@ void Shader::addShader(const std::string& shaderCode, GLenum shaderType) {
         std::cerr << "Failed to compile shader(" << shaderType << "): " << &errorLog[0] << std::endl;
         exit(1);
     }
+    glAttachShader(m_program, *shaderHandle);
 }
 
 void Shader::compileShader() {

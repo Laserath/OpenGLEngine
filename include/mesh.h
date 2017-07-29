@@ -20,8 +20,15 @@ class Mesh
     private:
         void operator=(const Mesh& other);
 
-        GLuint vbo;
-        uint64_t size;
+        enum VertexBuffers {
+            POSITION_VB,
+
+            NUM_BUFFERS
+        };
+
+        GLuint m_vertexArrayObject;
+        GLuint m_vertexBufferObject[NUM_BUFFERS];
+        uint64_t m_size;
 };
 }
 #endif // MESH_H

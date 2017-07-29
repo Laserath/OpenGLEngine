@@ -43,7 +43,7 @@ void RenderUtil::initGraphics() {
 
     glFrontFace(GL_CW);
     glCullFace(GL_BACK);
-    //glEnable(GL_CULL_FACE);
+    glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
 
     // TODO: Depth Clamp for later

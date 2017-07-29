@@ -14,10 +14,14 @@ Window::Window(const int width, const int height, const std::string& title)
     m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
     m_glContext = SDL_GL_CreateContext(m_window);
 
+    glewExperimental = GL_TRUE;
     GLenum status = glewInit();
     if (status != GLEW_OK) {
         std::cerr << "WARNING WILL ROBINSON!" << std::endl;
         std::cerr << "GLEW failed to initialize" << std::endl;
+        std::cerr << "GLEW Error Code: " << status << std::endl;
+        std::cerr << "GLEW Error Message: " << glewGetErrorString(status);
+        exit(1);
     }
 }
 

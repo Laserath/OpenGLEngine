@@ -50,14 +50,14 @@
 		<Unit filename="include/mesh.h" />
 		<Unit filename="include/quaternion.h" />
 		<Unit filename="include/render_util.h" />
+		<Unit filename="include/resource_loader.h" />
+		<Unit filename="include/shader.h" />
 		<Unit filename="include/vector2f.h" />
 		<Unit filename="include/vector3f.h" />
 		<Unit filename="include/vertex.h" />
 		<Unit filename="include/window.h" />
-		<Unit filename="resource_loader.cpp" />
-		<Unit filename="resource_loader.h" />
-		<Unit filename="shader.cpp" />
-		<Unit filename="shader.h" />
+		<Unit filename="shaders/basicFragment.fs" />
+		<Unit filename="shaders/basicVertex.vs" />
 		<Unit filename="src/engine.cpp" />
 		<Unit filename="src/engine_input.cpp" />
 		<Unit filename="src/engine_time.cpp" />
@@ -67,6 +67,8 @@
 		<Unit filename="src/mesh.cpp" />
 		<Unit filename="src/quaternion.cpp" />
 		<Unit filename="src/render_util.cpp" />
+		<Unit filename="src/resource_loader.cpp" />
+		<Unit filename="src/shader.cpp" />
 		<Unit filename="src/vector2f.cpp" />
 		<Unit filename="src/vector3f.cpp" />
 		<Unit filename="src/vertex.cpp" />
