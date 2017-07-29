@@ -18,6 +18,7 @@ void Engine::start(int *argcp, char **argv) {
     if (m_isRunning)
         return;
     std::cout << "Bootstraping Engine" << std::endl;
+    std::cout << "OpenGL Version: " << RenderUtil::getOpenGLVersion() << std::endl;
 
     EngineInput::init();
 

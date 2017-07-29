@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "mesh.h"
+#include "shader.h"
 
 namespace ogle {
 class Game
@@ -20,6 +21,7 @@ class Game
         void operator=(const Game& other) { }
 
         Mesh m_mesh;
+        Shader m_shader;
 };
 }
 #endif // GAME_H

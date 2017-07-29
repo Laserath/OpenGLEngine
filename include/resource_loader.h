@@ -2,6 +2,7 @@
 #define RESOURCE_LOADER_H
 
 #include <string>
+#include <memory>
 
 class ResourceLoader
 {
@@ -9,7 +10,7 @@ class ResourceLoader
         ResourceLoader();
         ResourceLoader(const ResourceLoader& other);
         virtual ~ResourceLoader();
-        static std::string loadShader(const std::string filename);
+        static std::shared_ptr<std::string> loadShader(const std::string filename);
 
 
     protected:

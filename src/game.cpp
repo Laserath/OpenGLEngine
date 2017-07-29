@@ -3,6 +3,8 @@
 #include "engine_input.h"
 #include <iostream>
 #include <SDL2/SDL.h>
+#include "resource_loader.h"
+#include <string>
 
 namespace ogle {
 
@@ -18,6 +20,19 @@ Game::Game()
     vertices.push_back(Vertex(vec3f_br));
 
     m_mesh.addVertices(vertices);
+
+    std::string vertexShader = *ResourceLoader::loadShader("shaders/basicVertex.vs");
+    std::string fragmentShader = *ResourceLoader::loadShader("shaders/basicFragment.fs");
+
+    //std::cout << "=== vertexShader ===" << std::endl;
+    //std::cout << vertexShader << std::endl;
+
+    //std::cout << "=== fragmentShader ===" << std::endl;
+    //std::cout << fragmentShader << std::endl;
+
+    m_shader.addVertexShader(vertexShader);
+    m_shader.addFragmentShader(fragmentShader);
+
 }
 
 void Game::input() {
@@ -49,6 +64,7 @@ void Game::update() {
 }
 
 void Game::render() {
+    m_shader.bind();
     m_mesh.draw();
 }
 

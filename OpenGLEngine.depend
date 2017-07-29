@@ -132,7 +132,7 @@
 	<GL/glew.h>
 	<string>
 
-1500357894 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/engine.cpp
+1501222811 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/engine.cpp
 	"engine.h"
 	"window.h"
 	<iostream>
@@ -149,8 +149,9 @@
 	<string>
 	<SDL2/SDL.h>
 
-1500357894 /media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/include/game.h
+1501221544 /media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/include/game.h
 	"mesh.h"
+	"shader.h"
 
 1500357894 /media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/include/mesh.h
 	<vector>
@@ -192,11 +193,13 @@
 	"engine_time.h"
 	<iostream>
 
-1500357894 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/game.cpp
+1501223907 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/game.cpp
 	"game.h"
 	"engine_input.h"
 	<iostream>
 	<SDL2/SDL.h>
+	"resource_loader.h"
+	<string>
 
 1500239496 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/main.cpp
 	<iostream>
@@ -223,7 +226,7 @@
 	<memory>
 	"vector3f.h"
 
-1500357894 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/render_util.cpp
+1501225088 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/render_util.cpp
 	"render_util.h"
 	<GL/glew.h>
 	<SDL2/SDL.h>
@@ -239,10 +242,28 @@
 1500357894 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/vertex.cpp
 	"vertex.h"
 
-1500357894 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/window.cpp
+1501225015 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/window.cpp
 	"window.h"
 	<GL/glew.h>
 	<iostream>
 	<vector>
 	"render_util.h"
+
+1500833251 /media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/include/shader.h
+	<GL/glew.h>
+	<string>
+
+1501224646 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/shader.cpp
+	"shader.h"
+	<iostream>
+	<vector>
+
+1501223359 /media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/include/resource_loader.h
+	<string>
+	<memory>
+
+1501224216 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/src/resource_loader.cpp
+	"resource_loader.h"
+	<iostream>
+	<fstream>
 

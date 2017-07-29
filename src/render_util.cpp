@@ -36,15 +36,25 @@ void RenderUtil::initGraphics() {
     SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
+    // laptop uses 3.0 by default, tell it to use a higher core profile (3.3 at least)
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+
     glFrontFace(GL_CW);
     glCullFace(GL_BACK);
-    glEnable(GL_CULL_FACE);
+    //glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
 
     // TODO: Depth Clamp for later
 
     glEnable(GL_FRAMEBUFFER_SRGB);
 
+}
+
+std::string RenderUtil::getOpenGLVersion() {
+    static std::string version((char *)glGetString(GL_VERSION));
+    return version;
 }
 
 void RenderUtil::shutdown() {

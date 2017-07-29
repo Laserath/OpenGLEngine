@@ -10,6 +10,7 @@ Window::Window(const int width, const int height, const std::string& title)
 {
     m_isClosed = false;
     RenderUtil::initGraphics();
+
     m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
     m_glContext = SDL_GL_CreateContext(m_window);
 

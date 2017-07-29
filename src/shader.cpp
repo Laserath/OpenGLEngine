@@ -44,10 +44,10 @@ void Shader::addShader(const std::string& shaderCode, GLenum shaderType) {
     glShaderSource(*shaderHandle, 1, &shaderSource, NULL);
     glCompileShader(*shaderHandle);
     GLint isCompiled = 0;
-    glGetShaderiv(*shaderHandle, shaderType, &isCompiled);
+    glGetShaderiv(*shaderHandle, GL_COMPILE_STATUS, &isCompiled);
     if (isCompiled == GL_FALSE) {
         GLint maxLength = 0;
-        glGetShaderiv(*shaderHandle, shaderType, &maxLength);
+        glGetShaderiv(*shaderHandle, GL_INFO_LOG_LENGTH, &maxLength);
         std::vector<GLchar> errorLog(maxLength);
         glGetShaderInfoLog(*shaderHandle, maxLength, &maxLength, &errorLog[0]);
 
