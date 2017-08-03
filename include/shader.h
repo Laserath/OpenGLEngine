@@ -4,7 +4,12 @@
 #include <GL/glew.h>
 #include <string>
 #include <iostream>
+#include <unordered_map>
+#include "vector3f.h"
+#include "matrix4f.h"
 
+
+namespace ogle {
 class Shader
 {
 
@@ -15,6 +20,12 @@ class Shader
         void addVertexShader(const std::string& shaderCode) { addShader(shaderCode, GL_VERTEX_SHADER); }
         void addFragmentShader(const std::string& shaderCode) { addShader(shaderCode, GL_FRAGMENT_SHADER); }
         void addGeometryShader(const std::string& shaderCode) { addShader(shaderCode, GL_GEOMETRY_SHADER); }
+
+        void addUniform(const std::string& uniform);
+        void setUniformi(const std::string& uniformName, int value);
+        void setUniformf(const std::string& uniformName, float value);
+        void setUniform(const std::string& uniformName, Vector3f value);
+        void setUniform(const std::string& uniformName, Matrix4f value);
 
         void compileShader();
         void bind() {
@@ -41,6 +52,7 @@ class Shader
         };
 
         GLuint m_shaders[SHADERS::NUM_SHADERS];
+        std::unordered_map<std::string, GLuint> m_uniforms;
 };
-
+}
 #endif // SHADER_H

@@ -70,10 +70,10 @@
 1501357942 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/render_util.h
 	<string>
 
-1501357942 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/matrix4f.cpp
+1501396944 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/matrix4f.cpp
 	"matrix4f.h"
 
-1501357942 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/matrix4f.h
+1501397218 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/matrix4f.h
 	<cstdint>
 	<iostream>
 	<vector>
@@ -271,10 +271,13 @@
 	<iostream>
 	<fstream>
 
-1501362170 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/shader.h
+1501396273 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/shader.h
 	<GL/glew.h>
 	<string>
 	<iostream>
+	<unordered_map>
+	"vector3f.h"
+	"matrix4f.h"
 
 1501357942 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/resource_loader.h
 	<string>
@@ -285,7 +288,7 @@
 	<iostream>
 	<fstream>
 
-1501362110 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/shader.cpp
+1501396977 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/shader.cpp
 	"shader.h"
 	<iostream>
 	<vector>

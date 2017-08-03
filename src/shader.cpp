@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 
+namespace ogle {
 Shader::Shader()
 {
     m_program = glCreateProgram();
@@ -60,6 +61,33 @@ void Shader::addShader(const std::string& shaderCode, GLenum shaderType) {
     glAttachShader(m_program, *shaderHandle);
 }
 
+void Shader::addUniform(const std::string& uniform) {
+    int uniformLocation = glGetUniformLocation(m_program, uniform.c_str());
+    if (uniformLocation == 0xFFFFFFFF) {
+        std::cout << "Error: Unable to find unform " << uniform << std::endl;
+        exit(1);
+    }
+
+    m_uniforms[uniform] = uniformLocation;
+
+}
+
+void Shader::setUniformi(const std::string& uniformName, int value) {
+    glUniform1i(m_uniforms[uniformName], value);
+}
+
+void Shader::setUniformf(const std::string& uniformName, float value) {
+    glUniform1f(m_uniforms[uniformName], value);
+}
+
+void Shader::setUniform(const std::string& uniformName, Vector3f value) {
+    glUniform3f(m_uniforms[uniformName], value.getX(), value.getY(), value.getZ());
+}
+
+void Shader::setUniform(const std::string& uniformName, Matrix4f value) {
+    glUniformMatrix4fv(m_uniforms[uniformName], MATRIX4F_SIZE, GL_TRUE, value.getItemsAsArray());
+}
+
 void Shader::compileShader() {
     GLint isLinked;
 
@@ -98,5 +126,5 @@ Shader::~Shader()
     glDeleteProgram(m_program);
 }
 
-
+}
 

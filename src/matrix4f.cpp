@@ -3,10 +3,7 @@
 namespace ogle {
 Matrix4f::Matrix4f()
 {
-    this->m_matrix = {};
-    for (int i = 0; i < 4; i++) {
-        this->m_matrix[i] = {0,0,0,0};
-    }
+    this->m_matrix = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
 }
 
 Matrix4f::Matrix4f(const Matrix4f& other)
@@ -37,6 +34,16 @@ std::shared_ptr<Matrix4f> Matrix4f::multiply(const Matrix4f& r) {
     }
 
     return newMat;
+}
+
+std::shared_ptr<float> Matrix4f::getItemsAsArray() {
+    std::shared_ptr<float> arrayPtr(float[4][4], std::default_delete<float[][]>());
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; i < 4; j++) {
+            arrayPtr[i][j] = m_matrix[i][j];
+        }
+    }
+    return arrayPtr;
 }
 
 float Matrix4f::getItem(const uint8_t x, const uint8_t y) const {
