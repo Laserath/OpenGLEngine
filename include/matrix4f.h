@@ -24,7 +24,7 @@ class Matrix4f: public std::enable_shared_from_this<Matrix4f> {
         float getItem(const uint8_t x, const uint8_t y);
         void setItem(const uint8_t x, const uint8_t y, const float val);
 
-        std::shared_ptr<float> getItemsAsArray();
+        std::shared_ptr<std::vector<float>> getItemsAsArray();
 
         virtual ~Matrix4f();
 

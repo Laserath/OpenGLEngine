@@ -36,11 +36,11 @@ std::shared_ptr<Matrix4f> Matrix4f::multiply(const Matrix4f& r) {
     return newMat;
 }
 
-std::shared_ptr<float> Matrix4f::getItemsAsArray() {
-    std::shared_ptr<float> arrayPtr(float[4][4], std::default_delete<float[][]>());
+std::shared_ptr<std::vector<float>> Matrix4f::getItemsAsArray() {
+    std::shared_ptr<std::vector<float>> arrayPtr(new std::vector<float>());
     for (int i = 0; i < 4; i++) {
         for (int j = 0; i < 4; j++) {
-            arrayPtr[i][j] = m_matrix[i][j];
+            arrayPtr.get()[i * 4 + j] = m_matrix[i][j];
         }
     }
     return arrayPtr;
