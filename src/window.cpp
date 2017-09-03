@@ -29,6 +29,14 @@ Window::Window(const Window& other) {
     Window(other.m_width, other.m_height, other.m_title);
 }
 
+int Window::getWidth() {
+    return m_width;
+}
+
+int Window::getHeight() {
+    return m_height;
+}
+
 void Window::Render() {
     SDL_GL_SwapWindow(m_window);
     SDL_Event e;

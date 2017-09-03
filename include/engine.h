@@ -18,9 +18,10 @@ class Engine
     protected:
 
     private:
-        Engine(const Engine& other) : m_window(other.getWindow()) { }
+        Engine(const Engine& other) : m_window(other.getWindow()), m_game(other.getGame()) { }
         void operator=(const Engine& other) { }
         Window getWindow() const { return m_window; }
+        Game getGame() const { return m_game; }
         void run();
         void render();
 

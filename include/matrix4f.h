@@ -14,17 +14,23 @@ class Matrix4f: public std::enable_shared_from_this<Matrix4f> {
         Matrix4f();
         Matrix4f(const Matrix4f& other);
         std::shared_ptr<Matrix4f> initIdentity();
+        std::shared_ptr<Matrix4f> initTranslation(const float x, const float y, const float z);
+        std::shared_ptr<Matrix4f> initRotation(const float x, const float y, const float z);
+        std::shared_ptr<Matrix4f> initScale(const float x, const float y, const float z);
+        std::shared_ptr<Matrix4f> initProjection(float fov, float width, float height, float zNear, float zFar);
         std::shared_ptr<Matrix4f> multiply(const Matrix4f& r);
 
-        std::vector<std::vector<float>> getMatrix() { return m_matrix; }
-        std::vector<std::vector<float>> getMatrix() const { return m_matrix; }
-        void setMatrix(std::vector<std::vector<float>> val) { m_matrix = val; }
+        float* getMatrix() { return m_matrix; }
+        const float* getMatrix() const { return m_matrix; }
+        void setMatrix(const float val[MATRIX4F_SIZE]) {
+            for (int i = 0; i < MATRIX4F_SIZE; i++) {
+                this->m_matrix[i] = val[i];
+            }
+        }
 
         float getItem(const uint8_t x, const uint8_t y) const;
         float getItem(const uint8_t x, const uint8_t y);
         void setItem(const uint8_t x, const uint8_t y, const float val);
-
-        std::shared_ptr<std::vector<float>> getItemsAsArray();
 
         virtual ~Matrix4f();
 
@@ -33,7 +39,7 @@ class Matrix4f: public std::enable_shared_from_this<Matrix4f> {
     private:
         void operator=(const Matrix4f& other) { }
 
-        std::vector<std::vector<float>> m_matrix;
+        float m_matrix[MATRIX4F_SIZE];
 };
 
 std::ostream& operator<<(std::ostream& os, const Matrix4f& matrix4f);

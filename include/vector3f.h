@@ -11,6 +11,7 @@ namespace ogle {
 class Vector3f
 {
     public:
+        Vector3f();
         Vector3f(const float x, const float y, const float z);
         Vector3f(const Vector3f& other);
         virtual ~Vector3f();

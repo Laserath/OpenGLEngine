@@ -11,23 +11,25 @@ class Mesh
     public:
         Mesh();
         Mesh(const Mesh& other);
-        void addVertices(std::vector<Vertex> vertices);
+        void operator=(const Mesh& other);
+        void addVertices(std::vector<Vertex> vertices, std::vector<GLuint> indices);
         void draw();
         virtual ~Mesh();
 
     protected:
 
     private:
-        void operator=(const Mesh& other);
 
         enum VertexBuffers {
             POSITION_VB,
+            INDEX_VB,
 
             NUM_BUFFERS
         };
 
         GLuint m_vertexArrayObject;
         GLuint m_vertexBufferObject[NUM_BUFFERS];
+        //std::vector<GLuint> m_indices;
         uint64_t m_size;
 };
 }

@@ -2,10 +2,11 @@
 
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
+#include <iostream>
 
-#define RU_CLEAR_R 1.0f
-#define RU_CLEAR_G 0.0f
-#define RU_CLEAR_B 0.0f
+#define RU_CLEAR_R 0.5f
+#define RU_CLEAR_G 0.5f
+#define RU_CLEAR_B 0.5f
 #define RU_CLEAR_A 0.0f
 
 RenderUtil::RenderUtil()
@@ -25,7 +26,6 @@ void RenderUtil::clearScreen() {
 }
 
 void RenderUtil::initGraphics() {
-
     SDL_Init(SDL_INIT_EVERYTHING);
 
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
@@ -41,9 +41,8 @@ void RenderUtil::initGraphics() {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
-    glFrontFace(GL_CW);
-    glCullFace(GL_BACK);
     glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
     glEnable(GL_DEPTH_TEST);
 
     // TODO: Depth Clamp for later

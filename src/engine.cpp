@@ -9,7 +9,7 @@
 #define FRAME_TIME 1.0 / FRAME_CAP
 
 namespace ogle {
-Engine::Engine(const int width, const int height, const std::string& title) : m_window(width, height, title), m_game()
+Engine::Engine(const int width, const int height, const std::string& title) : m_window(width, height, title), m_game(width, height)
 {
     m_isRunning = false;
 }

@@ -10,6 +10,8 @@ class Window
     public:
         Window(const int width, const int height, const std::string& title);
         Window(const Window& other);
+        int getWidth();
+        int getHeight();
         virtual ~Window();
         void Render();
         bool isClosed();

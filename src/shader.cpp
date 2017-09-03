@@ -85,7 +85,7 @@ void Shader::setUniform(const std::string& uniformName, Vector3f value) {
 }
 
 void Shader::setUniform(const std::string& uniformName, Matrix4f value) {
-    glUniformMatrix4fv(m_uniforms[uniformName], MATRIX4F_SIZE, GL_TRUE, value.getItemsAsArray());
+    glUniformMatrix4fv(m_uniforms[uniformName], 1, GL_TRUE, value.getMatrix());
 }
 
 void Shader::compileShader() {

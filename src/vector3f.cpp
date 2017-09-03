@@ -4,6 +4,13 @@
 
 
 namespace ogle {
+
+Vector3f::Vector3f() {
+    setX(0.0f);
+    setY(0.0f);
+    setZ(0.0f);
+}
+
 Vector3f::Vector3f(const float x, const float y, const float z)
 {
     setX(x);
