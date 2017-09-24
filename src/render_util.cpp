@@ -4,9 +4,9 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
-#define RU_CLEAR_R 0.5f
-#define RU_CLEAR_G 0.5f
-#define RU_CLEAR_B 0.5f
+#define RU_CLEAR_R 0.01f
+#define RU_CLEAR_G 0.01f
+#define RU_CLEAR_B 0.01f
 #define RU_CLEAR_A 0.0f
 
 RenderUtil::RenderUtil()
@@ -40,15 +40,31 @@ void RenderUtil::initGraphics() {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+}
 
+void RenderUtil::postInitGraphics() {
+
+
+    glEnable(GL_CW);
+    glCullFace(GL_FRONT);
     glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
     glEnable(GL_DEPTH_TEST);
 
-    // TODO: Depth Clamp for later
+    glEnable(GL_DEPTH_CLAMP);
 
-    glEnable(GL_FRAMEBUFFER_SRGB);
+    setTextures(true);
+}
 
+void RenderUtil::setTextures(bool enabled) {
+    if (enabled) {
+        glEnable(GL_TEXTURE_2D);
+    } else {
+        glDisable(GL_TEXTURE_2D);
+    }
+}
+
+void RenderUtil::unbindTexture() {
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 std::string RenderUtil::getOpenGLVersion() {

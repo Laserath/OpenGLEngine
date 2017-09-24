@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include "vector3f.h"
 #include "matrix4f.h"
-
+#include "mesh.h"
 
 namespace ogle {
 class Shader
@@ -16,6 +16,7 @@ class Shader
     public:
         Shader();
         Shader(const Shader& other);
+        Shader& operator=(const Shader& other);
 
         void addVertexShader(const std::string& shaderCode) { addShader(shaderCode, GL_VERTEX_SHADER); }
         void addFragmentShader(const std::string& shaderCode) { addShader(shaderCode, GL_FRAGMENT_SHADER); }
@@ -27,6 +28,8 @@ class Shader
         void setUniform(const std::string& uniformName, Vector3f value);
         void setUniform(const std::string& uniformName, Matrix4f value);
 
+        void updateUniforms(Matrix4f& worldMatrix, Matrix4f& projectedMatrix, Mesh& mesh);
+
         void compileShader();
         void bind() {
             glUseProgram(m_program);
@@ -34,11 +37,9 @@ class Shader
 
         virtual ~Shader();
 
-
     protected:
 
     private:
-        void operator=(const Shader& other) {}
         void addShader(const std::string& shaderCode, GLenum shaderType);
 
         GLuint m_program;

@@ -37,7 +37,7 @@ void Engine::run() {
     while (m_isRunning) {
         bool renderScene = false;
 
-        passedTime = startTime.getDelta();
+        passedTime = startTime.getDeltaNano();
         startTime.markTime();
         unprocessedTime += passedTime / (double) SECOND;
         frameCount += passedTime;

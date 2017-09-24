@@ -3,19 +3,24 @@
 
 #include <iostream>
 #include <memory>
+#include <glm/glm.hpp>
 
 namespace ogle {
 
 class Vector2f
 {
     public:
+        Vector2f();
         Vector2f(float x, float y);
         Vector2f(const Vector2f& other);
+        void operator=(const Vector2f& other);
 
         float getX() const { return this->m_x; }
         float getY() const { return this->m_y; }
         void setX(float x) { this->m_x = x; }
         void setY(float y) { this->m_y = y; }
+
+        std::shared_ptr<glm::vec2> asGLMVec() { return std::make_shared<glm::vec2>(getX(), getY()); }
 
         float length() const;
         float length();
@@ -33,7 +38,7 @@ class Vector2f
         std::shared_ptr<Vector2f> multiply(const float r);
         std::shared_ptr<Vector2f> divide(const Vector2f& r);
         std::shared_ptr<Vector2f> divide(const float r);
-
+        std::shared_ptr<Vector2f> absolute();
 
         virtual ~Vector2f();
 
@@ -41,7 +46,7 @@ class Vector2f
 
     private:
 
-        void operator=(const Vector2f& other) { }
+
 
         float m_x;
         float m_y;

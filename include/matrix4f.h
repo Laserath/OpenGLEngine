@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include "camera.h"
 
 #define MATRIX4F_SIZE 16 // 4 * 4 = matrix dimensions
 
@@ -18,6 +19,7 @@ class Matrix4f: public std::enable_shared_from_this<Matrix4f> {
         std::shared_ptr<Matrix4f> initRotation(const float x, const float y, const float z);
         std::shared_ptr<Matrix4f> initScale(const float x, const float y, const float z);
         std::shared_ptr<Matrix4f> initProjection(float fov, float width, float height, float zNear, float zFar);
+        std::shared_ptr<Matrix4f> initCamera(const Vector3f& forward, const Vector3f& up);
         std::shared_ptr<Matrix4f> multiply(const Matrix4f& r);
 
         float* getMatrix() { return m_matrix; }

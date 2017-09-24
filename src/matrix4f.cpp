@@ -94,6 +94,24 @@ std::shared_ptr<Matrix4f> Matrix4f::initProjection(float fov, float width, float
     return this->shared_from_this();
 }
 
+std::shared_ptr<Matrix4f> Matrix4f::initCamera(const Vector3f& forward, const Vector3f& up) {
+    Vector3f f = forward;
+    f.normalize();
+
+    Vector3f r = up;
+    r.normalize();
+    r = *r.cross(f);
+
+    Vector3f u = *f.cross(r);
+
+    float identityMatrix[MATRIX4F_SIZE] =
+    { r.getX(), r.getY(), r.getZ(), 0,
+      u.getX(), u.getY(), u.getZ(), 0,
+      f.getX(), f.getY(), f.getZ(), 0,
+      0,        0,        0,        1 };
+    this->setMatrix(identityMatrix);
+    return this->shared_from_this();
+}
 
 std::shared_ptr<Matrix4f> Matrix4f::multiply(const Matrix4f& r) {
     std::shared_ptr<Matrix4f> newMat = std::make_shared<Matrix4f>();

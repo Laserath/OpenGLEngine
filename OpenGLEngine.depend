@@ -7,14 +7,14 @@
 	<string>
 	<SDL2/SDL.h>
 
-1504334011 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/window.cpp
+1504989660 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/window.cpp
 	"window.h"
 	<GL/glew.h>
 	<iostream>
 	<vector>
 	"render_util.h"
 
-1504334171 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/engine.cpp
+1505709397 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/engine.cpp
 	"engine.h"
 	"window.h"
 	<iostream>
@@ -23,24 +23,26 @@
 	"engine_input.h"
 	"render_util.h"
 
-1504334271 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/engine.h
+1505596418 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/engine.h
 	"window.h"
 	"game.h"
 
-1499961902 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/engine_time.h
+1505710452 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/engine_time.h
 	<ctime>
 	<chrono>
 
-1499961607 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/engine_time.cpp
+1505710463 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/engine_time.cpp
 	"engine_time.h"
 	<iostream>
 
-1504416513 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/game.h
+1505971096 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/game.h
 	"mesh.h"
 	"shader.h"
+	"basicshader.h"
+	"phongshader.h"
 	"transform.h"
 
-1504417750 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/game.cpp
+1506287958 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/game.cpp
 	"game.h"
 	"engine_input.h"
 	<iostream>
@@ -49,8 +51,9 @@
 	<string>
 	<math.h>
 	"engine_time.h"
+	"point_light.h"
 
-1500104261 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/engine_input.cpp
+1505710943 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/engine_input.cpp
 	"engine_input.h"
 	<algorithm>
 	<SDL2/SDL.h>
@@ -62,26 +65,29 @@
 	<SDL2/SDL.h>
 	"vector2f.h"
 
-1500146544 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/vector2f.h
+1505592426 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/vector2f.h
 	<iostream>
 	<memory>
+	<glm/glm.hpp>
 
-1500145161 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/vector2f.cpp
+1505592397 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/vector2f.cpp
 	"vector2f.h"
 	<cmath>
+	<cstdlib>
 
-1502082750 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/render_util.h
+1505093161 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/render_util.h
 	<string>
 
-1504333651 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/matrix4f.cpp
+1504852178 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/matrix4f.cpp
 	"matrix4f.h"
 	<cmath>
 
-1504333171 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/matrix4f.h
+1504852164 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/matrix4f.h
 	<cstdint>
 	<iostream>
 	<vector>
 	<memory>
+	"camera.h"
 
 1500236120 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/quaternion.cpp
 	"quaternion.h"
@@ -91,7 +97,7 @@
 	<memory>
 	"vector3f.h"
 
-1502777047 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/vector3f.h
+1505595518 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/vector3f.h
 	<iostream>
 	<memory>
 	<glm/glm.hpp>
@@ -101,29 +107,34 @@
 	<GL/glew.h>
 	<SDL2/SDL.h>
 
-1502777059 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/vector3f.cpp
+1506198091 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/vector3f.cpp
 	"vector3f.h"
 	<cmath>
+	<cstdlib>
+	"quaternion.h"
 
-1504336918 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/mesh.h
+1505972714 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/mesh.h
 	<vector>
 	"vertex.h"
+	"texture.h"
+	"material.h"
 	<GL/glew.h>
 
-1504414989 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/vertex.h
+1505972464 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/vertex.h
 	"vector3f.h"
+	"vector2f.h"
 
-1504417300 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/mesh.cpp
+1506198209 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/mesh.cpp
 	"mesh.h"
 	<GL/glew.h>
 
-1504418010 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/render_util.cpp
+1506233890 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/render_util.cpp
 	"render_util.h"
 	<GL/glew.h>
 	<SDL2/SDL.h>
 	<iostream>
 
-1502776987 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/vertex.cpp
+1505972543 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/vertex.cpp
 	"vertex.h"
 
 1500488289 source:/media/usb_storage/gallium/Documents/OpenGLWorkspace/OpenGLEngine/resource_loader.cpp
@@ -276,39 +287,109 @@
 	<iostream>
 	<fstream>
 
-1502082750 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/shader.h
+1505594498 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/shader.h
 	<GL/glew.h>
 	<string>
 	<iostream>
 	<unordered_map>
 	"vector3f.h"
 	"matrix4f.h"
+	"mesh.h"
 
-1502774821 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/resource_loader.h
+1505015506 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/resource_loader.h
 	<string>
 	<memory>
 	<vector>
 	<assimp/scene.h>
 	"mesh.h"
 
-1504336300 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/resource_loader.cpp
+1506012082 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/resource_loader.cpp
 	"resource_loader.h"
 	<iostream>
 	<fstream>
 	<assimp/Importer.hpp>
 	<assimp/scene.h>
 	<assimp/postprocess.h>
+	<SOIL/SOIL.h>
+	"texture.h"
 
-1502088147 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/shader.cpp
+1506008085 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/shader.cpp
 	"shader.h"
 	<iostream>
 	<vector>
 
-1504334645 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/transform.cpp
+1504852106 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/transform.cpp
 	"transform.h"
 
-1504334628 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/transform.h
+1505596418 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/transform.h
 	<memory>
 	"vector3f.h"
 	"matrix4f.h"
+
+1505596491 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/camera.cpp
+	"camera.h"
+
+1505596418 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/camera.h
+	"vector3f.h"
+	<memory>
+
+1504996817 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/texture.h
+	<string>
+	<GL/glew.h>
+
+1505016176 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/texture.cpp
+	"texture.h"
+	<GL/glew.h>
+
+1505593238 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/basicshader.h
+	"shader.h"
+
+1505594497 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/basicshader.cpp
+	"basicshader.h"
+	"resource_loader.h"
+
+1506232609 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/material.h
+	"texture.h"
+	"vector3f.h"
+
+1506288495 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/material.cpp
+	"material.h"
+
+1506288003 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/phongshader.h
+	"shader.h"
+	"directionallight.h"
+	"vector3f.h"
+	"transform.h"
+	"point_light.h"
+	<string>
+
+1506288307 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/phongshader.cpp
+	"phongshader.h"
+	"resource_loader.h"
+
+1505974558 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/directionallight.h
+	"baselight.h"
+	"vector3f.h"
+
+1505974514 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/baselight.h
+	"vector3f.h"
+
+1506007694 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/baselight.cpp
+	"baselight.h"
+
+1506007710 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/directionallight.cpp
+	"directionallight.h"
+
+1506236371 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/attenuation.cpp
+	"attenuation.h"
+
+1506236354 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/attenuation.h
+
+1506236354 /home/matt/Documents/OpenGLWorkspace/OpenGLEngine/include/point_light.h
+	"baselight.h"
+	"attenuation.h"
+	"vector3f.h"
+
+1506236371 source:/home/matt/Documents/OpenGLWorkspace/OpenGLEngine/src/pointlight.cpp
+	"point_light.h"
 

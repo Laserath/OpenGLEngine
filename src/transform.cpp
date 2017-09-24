@@ -24,8 +24,15 @@ std::shared_ptr<Matrix4f> Transform::getTransformation() {
 std::shared_ptr<Matrix4f> Transform::getProjectedTransformation() {
     std::shared_ptr<Matrix4f> transformationMatrix = getTransformation();
     std::shared_ptr<Matrix4f> projectionMatrix = std::make_shared<Matrix4f>();
+    std::shared_ptr<Matrix4f> cameraRotation = std::make_shared<Matrix4f>();
+    std::shared_ptr<Matrix4f> cameraTranslation = std::make_shared<Matrix4f>();
+
     projectionMatrix->initProjection(m_fov, m_width, m_height, m_zNear, m_zFar);
-    return projectionMatrix->multiply(*transformationMatrix);
+
+    cameraRotation->initCamera(m_camera.getForward(), m_camera.getUp());
+    cameraTranslation->initTranslation(-m_camera.getPos().getX(),-m_camera.getPos().getY(),-m_camera.getPos().getZ());
+
+    return projectionMatrix->multiply(*cameraRotation->multiply(*cameraTranslation->multiply(*transformationMatrix)));
 }
 
 float Transform::m_zNear;

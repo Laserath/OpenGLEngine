@@ -23,6 +23,8 @@ Window::Window(const int width, const int height, const std::string& title)
         std::cerr << "GLEW Error Message: " << glewGetErrorString(status);
         exit(1);
     }
+
+    RenderUtil::postInitGraphics();
 }
 
 Window::Window(const Window& other) {

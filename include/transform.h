@@ -16,7 +16,7 @@ class Transform
         std::shared_ptr<Matrix4f> getTransformation();
         std::shared_ptr<Matrix4f> getProjectedTransformation();
 
-        Vector3f getTranslation() { return m_translation; }
+        Vector3f& getTranslation() { return m_translation; }
         void setTranslation(const Vector3f& value) { m_translation = value; }
         void setTranslation(const float x, const float y, const float z) {
             m_translation.setX(x);
@@ -24,7 +24,7 @@ class Transform
             m_translation.setZ(z);
         }
 
-        Vector3f getRotation() { return m_rotation; }
+        Vector3f& getRotation() { return m_rotation; }
         void setRotation(const Vector3f& value) { m_rotation = value; }
         void setRotation(const float x, const float y, const float z) {
             m_rotation.setX(x);
@@ -32,7 +32,7 @@ class Transform
             m_rotation.setZ(z);
         }
 
-        Vector3f getScale() { return m_scale; }
+        Vector3f& getScale() { return m_scale; }
         void setScale(const Vector3f& value) { m_scale = value; }
         void setScale(const float x, const float y, const float z) {
             m_scale.setX(x);
@@ -48,6 +48,10 @@ class Transform
             Transform::m_zFar = zFar;
         }
 
+        Camera& getCamera() { return this->m_camera; }
+        Camera getCamera() const { return this->m_camera; }
+        void setCamera(Camera& camera) { this->m_camera = camera; }
+
     protected:
 
     private:
@@ -56,14 +60,13 @@ class Transform
         Vector3f m_translation;
         Vector3f m_rotation;
         Vector3f m_scale;
-
+        Camera m_camera;
 
         static float m_zNear;
         static float m_zFar;
         static float m_width;
         static float m_height;
         static float m_fov;
-
 };
 
 

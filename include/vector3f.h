@@ -14,6 +14,8 @@ class Vector3f
         Vector3f();
         Vector3f(const float x, const float y, const float z);
         Vector3f(const Vector3f& other);
+        Vector3f& operator=(const Vector3f& other);
+
         virtual ~Vector3f();
 
         float getX() const;
@@ -38,7 +40,7 @@ class Vector3f
         std::shared_ptr<Vector3f> cross(const Vector3f& r);
 
         std::shared_ptr<Vector3f> normalize();
-        std::shared_ptr<Vector3f> rotate(const float angle);
+        Vector3f rotate(const float angle, Vector3f axis);
         std::shared_ptr<Vector3f> add(const Vector3f& r);
         std::shared_ptr<Vector3f> add(const float r);
         std::shared_ptr<Vector3f> subtract(const Vector3f& r);
@@ -47,6 +49,7 @@ class Vector3f
         std::shared_ptr<Vector3f> multiply(const float r);
         std::shared_ptr<Vector3f> divide(const Vector3f& r);
         std::shared_ptr<Vector3f> divide(const float r);
+        std::shared_ptr<Vector3f> absolute();
 
     protected:
 

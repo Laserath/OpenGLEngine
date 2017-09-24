@@ -21,9 +21,18 @@ int64_t Time::getTimeInNanoseconds() {
     return nanoseconds;
 }
 
-int64_t Time::getDelta() {
+int64_t Time::getDeltaNano() {
     return Time::getTimeInNanoseconds() - m_previousTime;
 }
+
+float Time::getDeltaMilli() {
+    return getDeltaNano() * 0.000001f;
+}
+
+float Time::getDelta() {
+    return getDeltaMilli() * 0.001f;
+}
+
 
 void Time::markTime() {
     m_previousTime = Time::getTimeInNanoseconds();

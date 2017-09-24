@@ -1,18 +1,28 @@
 #include "vector2f.h"
 
 #include <cmath>
+#include <cstdlib>
 
 #define DEGREE_TO_RADIANS M_PI / 180
 
 namespace ogle {
+Vector2f::Vector2f() {
+    this->m_x = 0.0f;
+    this->m_y = 0.0f;
+}
+
 Vector2f::Vector2f(float x, float y)
 {
-
     this->m_x = x;
     this->m_y = y;
 }
 
 Vector2f::Vector2f(const Vector2f& other) {
+    this->m_x = other.m_x;
+    this->m_y = other.m_y;
+}
+
+void Vector2f::operator=(const Vector2f& other) {
     this->m_x = other.m_x;
     this->m_y = other.m_y;
 }
@@ -79,6 +89,10 @@ std::shared_ptr<Vector2f> Vector2f::divide(const Vector2f& r) {
 
 std::shared_ptr<Vector2f> Vector2f::divide(const float r) {
     return std::make_shared<Vector2f>(getX() / r, getY() / r);
+}
+
+std::shared_ptr<Vector2f> Vector2f::absolute() {
+    return std::make_shared<Vector2f>(abs(getX()), abs(getY()));
 }
 
 std::ostream& operator<<(std::ostream& os, const Vector2f& vector2f) {

@@ -24,6 +24,12 @@ Shader::Shader(const Shader& other)
     std::copy(std::begin(other.m_shaders), std::end(other.m_shaders), m_shaders);
 }
 
+Shader& Shader::operator=(const Shader& other) {
+    m_program = other.m_program;
+    std::copy(std::begin(other.m_shaders), std::end(other.m_shaders), m_shaders);
+    return *this;
+}
+
 void Shader::addShader(const std::string& shaderCode, GLenum shaderType) {
     GLuint *shaderHandle;
     switch(shaderType) {
@@ -64,7 +70,7 @@ void Shader::addShader(const std::string& shaderCode, GLenum shaderType) {
 void Shader::addUniform(const std::string& uniform) {
     int uniformLocation = glGetUniformLocation(m_program, uniform.c_str());
     if (uniformLocation == 0xFFFFFFFF) {
-        std::cout << "Error: Unable to find unform " << uniform << std::endl;
+        std::cout << "Error: Unable to find uniform " << uniform << std::endl;
         exit(1);
     }
 
@@ -86,6 +92,10 @@ void Shader::setUniform(const std::string& uniformName, Vector3f value) {
 
 void Shader::setUniform(const std::string& uniformName, Matrix4f value) {
     glUniformMatrix4fv(m_uniforms[uniformName], 1, GL_TRUE, value.getMatrix());
+}
+
+void Shader::updateUniforms(Matrix4f& worldMatrix, Matrix4f& projectedMatrix, Mesh& m_mesh) {
+
 }
 
 void Shader::compileShader() {

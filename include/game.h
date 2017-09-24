@@ -3,6 +3,8 @@
 
 #include "mesh.h"
 #include "shader.h"
+#include "basicshader.h"
+#include "phongshader.h"
 #include "transform.h"
 
 namespace ogle {
@@ -21,12 +23,13 @@ class Game
     private:
         void operator=(const Game& other) { }
 
-        int m_xRot;
-        int m_yRot;
+        Vector2f m_mouseDownPosition;
+        float m_xRot;
+        float m_yRot;
 
         Mesh m_mesh;
-        Shader m_shader;
         Transform m_transform;
+        Camera m_camera;
         float m_temp;
 };
 }

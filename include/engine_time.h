@@ -13,7 +13,10 @@ class Time
         Time();
         virtual ~Time();
         static int64_t getTimeInNanoseconds();
-        int64_t getDelta();
+        int64_t getDeltaNano();
+        float getDeltaMilli();
+        float getDelta();
+
         void markTime();
 
     protected:

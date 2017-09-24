@@ -12,6 +12,9 @@ class RenderUtil
 
         static void clearScreen();
         static void initGraphics();
+        static void postInitGraphics();
+        static void setTextures(bool enabled);
+        static void unbindTexture();
         static void shutdown();
         static std::string getOpenGLVersion();
 
