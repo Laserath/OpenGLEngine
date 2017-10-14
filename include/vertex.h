@@ -15,7 +15,7 @@ class Vertex
 
         Vector3f& getPos() { return this->m_position; }
         Vector3f getPos() const { return this->m_position; }
-        void setPos(Vector3f& pos) {
+        void setPos(const Vector3f& pos) {
             this->m_position.setX(pos.getX());
             this->m_position.setY(pos.getY());
             this->m_position.setZ(pos.getZ());
@@ -23,14 +23,14 @@ class Vertex
 
         Vector2f& getTexCoords() { return this->m_texCoords; }
         Vector2f getTexCoords() const { return this->m_texCoords; }
-        void setTexCoords(Vector2f& texCoords) {
+        void setTexCoords(const Vector2f& texCoords) {
             this->m_texCoords.setX(texCoords.getX());
             this->m_texCoords.setY(texCoords.getY());
         }
 
         Vector3f& getNormals() { return this->m_normals; }
         Vector3f getNormals() const { return this->m_normals; }
-        void setNormals(Vector3f& normals) {
+        void setNormals(const Vector3f& normals) {
             this->m_normals.setX(normals.getX());
             this->m_normals.setY(normals.getY());
             this->m_normals.setZ(normals.getZ());

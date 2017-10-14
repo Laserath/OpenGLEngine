@@ -15,19 +15,19 @@ class Camera
 
         Vector3f& getPos() { return this->m_pos; }
         Vector3f getPos() const { return this->m_pos; }
-        void setPos(Vector3f& pos) {
+        void setPos(const Vector3f& pos) {
             this->m_pos = pos;
         }
 
         Vector3f& getForward() { return this->m_forward; }
         Vector3f getForward() const { return this->m_forward; }
-        void setForward(Vector3f& forward) {
+        void setForward(const Vector3f& forward) {
             this->m_forward = forward;
         }
 
         Vector3f& getUp() { return this->m_up; }
         Vector3f getUp() const { return this->m_up; }
-        void setUp(Vector3f& up) {
+        void setUp(const Vector3f& up) {
             this->m_up = up;
         }
 

@@ -14,11 +14,11 @@ class BaseLight
 
         Vector3f& getColor() { return this->m_color; }
         Vector3f getColor() const { return this->m_color; }
-        void setColor(Vector3f& color) { this->m_color = color; }
+        void setColor(const Vector3f& color) { this->m_color = color; }
 
         float getIntensity() { return this->m_intensity; }
         float getIntensity() const { return this->m_intensity; }
-        void setIntensity(float intensity) { this->m_intensity = intensity; }
+        void setIntensity(const float intensity) { this->m_intensity = intensity; }
 
         virtual ~BaseLight();
 

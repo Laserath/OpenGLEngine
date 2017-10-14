@@ -23,10 +23,10 @@ class Shader
         void addGeometryShader(const std::string& shaderCode) { addShader(shaderCode, GL_GEOMETRY_SHADER); }
 
         void addUniform(const std::string& uniform);
-        void setUniformi(const std::string& uniformName, int value);
-        void setUniformf(const std::string& uniformName, float value);
-        void setUniform(const std::string& uniformName, Vector3f value);
-        void setUniform(const std::string& uniformName, Matrix4f value);
+        void setUniformi(const std::string& uniformName, const int value);
+        void setUniformf(const std::string& uniformName, const float value);
+        void setUniform(const std::string& uniformName, const Vector3f value);
+        void setUniform(const std::string& uniformName, const Matrix4f value);
 
         void updateUniforms(Matrix4f& worldMatrix, Matrix4f& projectedMatrix, Mesh& mesh);
 

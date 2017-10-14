@@ -13,15 +13,15 @@ class Attenuation
 
         float getConstant() { return this->m_constant; }
         float getConstant() const { return this->m_constant; }
-        void setConstant(float constant) { this->m_constant = constant; }
+        void setConstant(const float constant) { this->m_constant = constant; }
 
         float getLinear() { return this->m_linear; }
         float getLinear() const { return this->m_linear; }
-        void setLinear(float linear) { this->m_linear = linear; }
+        void setLinear(const float linear) { this->m_linear = linear; }
 
         float getExponent() { return this->m_exponent; }
         float getExponent() const { return this->m_exponent; }
-        void setExponent(float exponent) { this->m_exponent = exponent; }
+        void setExponent(const float exponent) { this->m_exponent = exponent; }
 
         virtual ~Attenuation();
 

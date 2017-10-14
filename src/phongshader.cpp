@@ -9,7 +9,10 @@ namespace ogle {
 
 PhongShader *PhongShader::INSTANCE;
 PointLight PhongShader::pointLights[MAX_POINT_LIGHTS];
+SpotLight PhongShader::spotLights[MAX_SPOT_LIGHTS];
+
 int PhongShader::numPointLights = 0;
+int PhongShader::numSpotLights = 0;
 
 PhongShader *PhongShader::getInstance() {
     if (INSTANCE == nullptr) {
@@ -48,6 +51,19 @@ PhongShader::PhongShader()
         addUniform("pointLights[" + std::to_string(i) + "].atten.linear");
         addUniform("pointLights[" + std::to_string(i) + "].atten.exponent");
         addUniform("pointLights[" + std::to_string(i) + "].position");
+        addUniform("pointLights[" + std::to_string(i) + "].range");
+    }
+
+    for (int i = 0; i < MAX_SPOT_LIGHTS; i++) {
+        addUniform("spotLights[" + std::to_string(i) + "].pointLight.base.color");
+        addUniform("spotLights[" + std::to_string(i) + "].pointLight.base.intensity");
+        addUniform("spotLights[" + std::to_string(i) + "].pointLight.atten.constant");
+        addUniform("spotLights[" + std::to_string(i) + "].pointLight.atten.linear");
+        addUniform("spotLights[" + std::to_string(i) + "].pointLight.atten.exponent");
+        addUniform("spotLights[" + std::to_string(i) + "].pointLight.position");
+        addUniform("spotLights[" + std::to_string(i) + "].pointLight.range");
+        addUniform("spotLights[" + std::to_string(i) + "].direction");
+        addUniform("spotLights[" + std::to_string(i) + "].cutoff");
     }
 
     BaseLight baseLight;
@@ -72,6 +88,9 @@ void PhongShader::updateUniforms(Matrix4f& worldMatrix, Matrix4f& projectedMatri
         setUniform("pointLights[" + std::to_string(i) + "]", PhongShader::pointLights[i]);
     }
 
+    for (int i = 0; i < PhongShader::numSpotLights; i++) {
+        setUniform("spotLights[" + std::to_string(i) + "]", PhongShader::spotLights[i]);
+    }
 }
 
 void PhongShader::setUniform(const std::string& uniformName, const DirectionalLight& directionalLight) {
@@ -83,6 +102,7 @@ void PhongShader::setUniform(const std::string& uniformName, const PointLight& p
     setUniform(uniformName + ".base", pointLight.getBaseLight());
     setUniform(uniformName + ".atten", pointLight.getAtten());
     Shader::setUniform(uniformName + ".position", pointLight.getPosition());
+    Shader::setUniformf(uniformName + ".range", pointLight.getRange());
 }
 
 void PhongShader::setUniform(const std::string& uniformName, const Attenuation& atten) {
@@ -96,6 +116,12 @@ void PhongShader::setUniform(const std::string& uniformName, const BaseLight& ba
     Shader::setUniformf(uniformName + ".intensity", baseLight.getIntensity());
 }
 
+void PhongShader::setUniform(const std::string& uniformName, const SpotLight& spotLight) {
+    setUniform(uniformName + ".pointLight", spotLight.getPointLight());
+    Shader::setUniform(uniformName + ".direction", spotLight.getDirection());
+    Shader::setUniformf(uniformName + ".cutoff", spotLight.getCutoff());
+}
+
 void PhongShader::addPointLight(const PointLight& pointLight) {
     if (PhongShader::numPointLights == MAX_POINT_LIGHTS) {
         std::cerr << "Unable to add PointLight. Currently to many point lights for this scene" << std::endl;
@@ -103,6 +129,23 @@ void PhongShader::addPointLight(const PointLight& pointLight) {
     }
     PhongShader::pointLights[PhongShader::numPointLights] = pointLight;
     PhongShader::numPointLights++;
+}
+
+void PhongShader::clearPointLights() {
+    PhongShader::numPointLights = 0;
+}
+
+void PhongShader::addSpotLight(const SpotLight& spotLight) {
+    if (PhongShader::numSpotLights == MAX_SPOT_LIGHTS) {
+        std::cerr << "Unable to add SpotLight. Currently to many spot lights for this scene" << std::endl;
+        exit(1);
+    }
+    PhongShader::spotLights[PhongShader::numSpotLights] = spotLight;
+    PhongShader::numSpotLights++;
+}
+
+void PhongShader::clearSpotLights() {
+    PhongShader::numSpotLights = 0;
 }
 
 PhongShader::~PhongShader()

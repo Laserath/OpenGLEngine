@@ -16,21 +16,21 @@ class Material
 
         Texture& getTexture() { return this->m_texture; }
         Texture getTexture() const { return this->m_texture; }
-        void setTexture(Texture& texture) { this->m_texture = texture; }
+        void setTexture(const Texture& texture) { this->m_texture = texture; }
 
         Vector3f& getColor() { return this->m_color; }
         Vector3f getColor() const { return this->m_color; }
-        void setColor(Vector3f& color) { this->m_color = color; }
+        void setColor(const Vector3f& color) { this->m_color = color; }
 
         float getSpecularIntensity() { return this->m_specularIntensity; }
         float getSpecularIntensity() const { return this->m_specularIntensity; }
-        void setSpecularIntensity(float specularIntensity) {
+        void setSpecularIntensity(const float specularIntensity) {
             this->m_specularIntensity = specularIntensity;
         }
 
         float getSpecularPower() { return this->m_specularPower; }
         float getSpecularPower() const { return this->m_specularPower; }
-        void setSpecularPower(float specularPower) {
+        void setSpecularPower(const float specularPower) {
             this->m_specularPower = specularPower;
         }
 

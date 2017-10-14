@@ -17,8 +17,8 @@ class Vector2f
 
         float getX() const { return this->m_x; }
         float getY() const { return this->m_y; }
-        void setX(float x) { this->m_x = x; }
-        void setY(float y) { this->m_y = y; }
+        void setX(const float x) { this->m_x = x; }
+        void setY(const float y) { this->m_y = y; }
 
         std::shared_ptr<glm::vec2> asGLMVec() { return std::make_shared<glm::vec2>(getX(), getY()); }
 

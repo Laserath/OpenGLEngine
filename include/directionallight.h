@@ -15,11 +15,11 @@ class DirectionalLight
 
         BaseLight& getBase() { return this->m_base; }
         BaseLight getBase() const { return this->m_base; }
-        void setBase(BaseLight& base) { this->m_base = base; }
+        void setBase(const BaseLight& base) { this->m_base = base; }
 
         Vector3f& getDirection() { return this->m_direction; }
         Vector3f getDirection() const { return this->m_direction; }
-        void setDirection(Vector3f& direction) { this->m_direction = direction; }
+        void setDirection(const Vector3f& direction) { this->m_direction = direction; }
 
         virtual ~DirectionalLight();
 

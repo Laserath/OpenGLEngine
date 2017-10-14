@@ -13,7 +13,7 @@ namespace ogle {
 
 Game::Game(const int& width, const int& height)
 {
-    std::vector<Mesh> meshes = *ResourceLoader::loadMesh("models/textured_cube/textured_cube.obj");
+    std::vector<Mesh> meshes = *ResourceLoader::loadMesh("models/textured_plane/textured_plane.obj");
     if (meshes.size() < 1) {
         std::cerr << "Unable to load mesh, no mesh returned" << std::endl;
         exit(1);
@@ -31,28 +31,43 @@ Game::Game(const int& width, const int& height)
     Vector3f direction = Vector3f(-1,1,-1);
     PhongShader::getInstance()->getDirectionalLight().setDirection(direction);
 
-    PointLight pLight1;
-    Vector3f pLight1Color = Vector3f(1, 0, 0);
+    Vector3f pLight1Color = Vector3f(1, 0.5, 0);
     Attenuation pLight1Atten = Attenuation(0, 0, 1);
     Vector3f pLight1Position = Vector3f(-2, 0, 3);
 
-    pLight1.getBaseLight().setColor(pLight1Color);
-    pLight1.getBaseLight().setIntensity(0.8f);
-    pLight1.setPosition(pLight1Position);
-    pLight1.setAtten(pLight1Atten);
+    m_pLight1.getBaseLight().setColor(pLight1Color);
+    m_pLight1.getBaseLight().setIntensity(0.8f);
+    m_pLight1.setPosition(pLight1Position);
+    m_pLight1.setAtten(pLight1Atten);
+    m_pLight1.setRange(10.0f);
 
-    PointLight pLight2;
-    Vector3f pLight2Color = Vector3f(0, 0, 1);
+    Vector3f pLight2Color = Vector3f(0, 0.5, 1);
     Attenuation pLight2Atten = Attenuation(0, 0, 1);
     Vector3f pLight2Position = Vector3f(2, 0, 7);
 
-    pLight2.getBaseLight().setColor(pLight2Color);
-    pLight2.getBaseLight().setIntensity(0.8f);
-    pLight2.setPosition(pLight2Position);
-    pLight2.setAtten(pLight2Atten);
+    m_pLight2.getBaseLight().setColor(pLight2Color);
+    m_pLight2.getBaseLight().setIntensity(0.8f);
+    m_pLight2.setPosition(pLight2Position);
+    m_pLight2.setAtten(pLight2Atten);
+    m_pLight2.setRange(10.0f);
 
-    PhongShader::addPointLight(pLight1);
-    PhongShader::addPointLight(pLight2);
+    PointLight pLight3;
+    Vector3f pLight3Color = Vector3f(0, 0.5, 1);
+    Attenuation pLight3Atten = Attenuation(0, 0, 1);
+    Vector3f pLight3Position = Vector3f(2, 0, 7);
+
+    pLight3.getBaseLight().setColor(pLight3Color);
+    pLight3.getBaseLight().setIntensity(0.8f);
+    pLight3.setPosition(pLight3Position);
+    pLight3.setAtten(pLight3Atten);
+    pLight3.setRange(10.0f);
+
+    Vector3f sLight1_direction = Vector3f(1,1,1);
+    m_sLight1.setPointLight(pLight3);
+    m_sLight1.setDirection(sLight1_direction);
+    m_sLight1.setCutoff(0.7);
+
+    m_camera.setPos(Vector3f(0.0f, 5.0f, -13.0f));
 }
 
 void Game::input() {
@@ -137,9 +152,18 @@ void Game::input() {
 void Game::update() {
     static Time uniformTime;
     m_temp = uniformTime.getDeltaNano() * .000000001;
-    float sinTemp = sin(m_temp);
+    float sinTemp = sin(m_temp) * 5;
 
-    m_transform.setTranslation(sinTemp, sinTemp, 5.0f);
+    PhongShader::clearPointLights();
+    PhongShader::clearSpotLights();
+    m_pLight1.setPosition(Vector3f(sinTemp, 0.0f, 5.0f));
+    m_pLight2.setPosition(Vector3f(0.0f, 0.0f, sinTemp + 3.0f));
+
+    PhongShader::addPointLight(m_pLight1);
+    PhongShader::addPointLight(m_pLight2);
+    //PhongShader::addSpotLight(m_sLight1);
+
+    m_transform.setTranslation(0.0f, 0.0f, 5.0f);
     m_transform.setRotation(m_xRot, m_yRot, 0);
     m_transform.setCamera(m_camera);
     //m_transform.setScale(sinTemp,sinTemp,sinTemp);

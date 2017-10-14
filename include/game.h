@@ -31,6 +31,9 @@ class Game
         Transform m_transform;
         Camera m_camera;
         float m_temp;
+        PointLight m_pLight1;
+        PointLight m_pLight2;
+        SpotLight m_sLight1;
 };
 }
 #endif // GAME_H
